@@ -1,0 +1,28 @@
+require 'retrospec/plugins/v1/module_helpers'
+require 'retrospec/plugins/v1'
+require 'spec_object'
+
+module Retrospec
+  module Plugins
+    module V1
+      class <%= @capitalized_plugin_name %>
+        attr_reader :template_dir, :module_path, :config_data, :context
+
+        def initialize(supplied_module_path=nil,config={})
+          @config_data = config
+          @module_path = File.expand_path(supplied_module_path)
+          @context = PluginGen::SpecObject.new(module_path, config)
+        end
+
+        def run
+          safe_create_module_files
+        end
+
+        # the template directory located inside the retrospec gem
+        def template_dir
+          @template_dir ||= File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
+        end
+      end
+    end
+  end
+end
