@@ -15,10 +15,10 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
   gem.name = "retrospec-plugingen"
-  gem.homepage = "http://github.com/logicminds/retrospec-plugingen"
+  gem.homepage = "https://github.com/nwops/retrospec-plugingen"
   gem.license = "MIT"
-  gem.summary = %Q{Generates the retrospec plugin scaffolding}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Generates the retrospec plugin scaffolding for retrospec plugins}
+  gem.description = ''
   gem.email = "corey@logicminds.biz"
   gem.authors = ["Corey Osman"]
   # dependencies defined in Gemfile

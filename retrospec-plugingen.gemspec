@@ -39,11 +39,12 @@ Gem::Specification.new do |s|
     "lib/retrospec/plugins/v1/plugin/templates/module_files/spec/spec_helper.rb",
     "lib/retrospec/plugins/v1/plugin/templates/plugin-name.rb.erb",
     "lib/retrospec/plugins/v1/plugin/templates/retrospec-main-plugin-file.rb.erb",
+    "retrospec-plugingen.gemspec",
     "spec/plugin_gen_spec.rb",
     "spec/retrospec-plugin_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/nwops/retrospec-plugingen"
+  s.homepage = "https://github.com/nwops/retrospec-plugingen"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "2.0.14"
