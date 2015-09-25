@@ -1,6 +1,11 @@
 # retrospec-plugin_gen
 
-Description goes here.
+## Summary
+This plugin is the starting point to create plugins for retrospec.  Its a widget for creating widgets!
+Use the plugin to generate the retrospec plugin layout, along with basic tests and documentation.
+
+
+
 
 ## Contributing to retrospec-plugin
  

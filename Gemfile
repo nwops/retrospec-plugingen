@@ -11,5 +11,8 @@ group :development do
   gem "bundler", "~> 1.0"
   gem "jeweler", "~> 2.0.1"
   gem "simplecov", ">= 0"
-  gem 'retrospec', :git => 'https://github.com/nwops/retrospec.git'
+  gem "pry"
 end
+#gem 'retrospec', :git => 'https://github.com/nwops/retrospec.git'
+gem 'retrospec', :path => '/Users/cosman/github/retrospec'
+gem 'facets'

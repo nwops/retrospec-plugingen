@@ -3,7 +3,7 @@ require 'retrospec'
 
 describe "RetrospecPlugin" do
   let(:gen) do
-    Retrospec::Plugins::V1::PluginGen.new('/tmp', {:name => 'testplugin', :config1 => 'test'})
+    Retrospec::Plugins::V1::PluginGen.new('/tmp/testplugin_dir', {:name => 'testplugin', :config1 => 'test'})
   end
 
   it "can create plugin instance" do
@@ -15,7 +15,7 @@ describe "RetrospecPlugin" do
   end
 
   it 'can module_path from context' do
-    expect(gen.context.module_path).to eq('/tmp')
+    expect(gen.context.module_path).to eq('/tmp/testplugin_dir')
   end
 
   it 'can get module name' do
@@ -26,4 +26,7 @@ describe "RetrospecPlugin" do
     expect(gen.context.capitalized_plugin_name).to eq('Testplugin')
   end
 
+  it 'can run without error' do
+    expect{gen.run}.to_not raise_error
+  end
 end
