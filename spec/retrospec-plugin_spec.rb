@@ -1,7 +1,10 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require 'spec_helper'
 
 describe "RetrospecPlugin" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+  let(:gen) do
+    Retrospec::Plugins::V1::PluginGen.new('/tmp')
+  end
+  it "can create plugin instance" do
+     expect(gen).to be_a Retrospec::Plugins::V1::PluginGen
   end
 end

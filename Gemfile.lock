@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/nwops/retrospec.git
-  revision: d77f338ace265d5a7242136f7e27ac04ff836683
+  revision: ba54669980e2711db60b5e70a8ad9f8c05e9d00b
   specs:
-    retrospec (0.0.0)
+    retrospec (0.1.0)
       trollop
 
 GEM

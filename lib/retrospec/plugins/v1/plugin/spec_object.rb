@@ -13,11 +13,11 @@ module PluginGen
     end
 
     def capitalized_plugin_name
-      module_name.capitalize
+      plugin_name.capitalize
     end
 
-    def module_name
-      instance['plugin_name']
+    def plugin_name
+      instance[:name]
     end
 
     def get_binding

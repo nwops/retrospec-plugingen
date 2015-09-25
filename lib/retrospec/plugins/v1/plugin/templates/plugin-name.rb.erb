@@ -15,7 +15,7 @@ module Retrospec
         end
 
         def run
-          safe_create_module_files
+          safe_create_module_files(template_dir, module_path, context)
         end
 
         # the template directory located inside the retrospec gem
