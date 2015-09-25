@@ -10,6 +10,8 @@ module Retrospec
       class PluginGen
         attr_reader :template_dir, :module_path, :config_data, :context
 
+        include Retrospec::Plugins::V1::ModuleHelpers
+
         def initialize(supplied_module_path=nil,config={})
           @config_data = config
           @module_path = File.expand_path(supplied_module_path)
@@ -29,13 +31,13 @@ module Retrospec
         end
 
         def create_main_file
-          file_path = File.join(module_path, 'lib', "retrospec-#{plugin_name}", '.rb' )
+          file_path = File.join(module_path, 'lib', "retrospec-#{plugin_name}.rb" )
           template  = File.join(template_dir, 'retrospec-main-plugin-file.rb.erb' )
           safe_create_template_file(file_path, template, context)
         end
 
         def create_plugin_file
-          file_path = File.join(module_path, 'lib', 'retrospec', 'v1', 'plugin', plugin_name, '.rb' )
+          file_path = File.join(module_path, 'lib', 'retrospec', 'plugins', 'v1', 'plugin', "#{plugin_name}.rb" )
           template  = File.join(template_dir, 'plugin-name.rb.erb' )
           safe_create_template_file(file_path, template, context)
         end

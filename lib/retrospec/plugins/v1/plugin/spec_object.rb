@@ -1,23 +1,25 @@
+require 'facets'
+
 module PluginGen
 
   class SpecObject
-    attr_accessor :instance
+    attr_reader :instance, :module_path, :capitalized_plugin_name, :plugin_name, :snakecase_plugin_name
 
     def initialize(mod_path, data)
       @instance = data
       @module_path = mod_path
     end
 
-    def module_path
-      @module_path
+    def snakecase_plugin_name
+      @snakecase_plugin_name ||= plugin_name.snakecase
     end
 
     def capitalized_plugin_name
-      plugin_name.capitalize
+      @capitalized_plugin_name ||= plugin_name.capitalize
     end
 
     def plugin_name
-      instance[:name]
+      @plugin_name ||= instance[:name]
     end
 
     def get_binding

@@ -1,17 +1,19 @@
 require 'retrospec/plugins/v1/module_helpers'
 require 'retrospec/plugins/v1'
-require 'spec_object'
+require_relative 'spec_object'
 
 module Retrospec
   module Plugins
     module V1
-      class <%= @capitalized_plugin_name %>
+      class <%= capitalized_plugin_name %>
         attr_reader :template_dir, :module_path, :config_data, :context
+
+        include Retrospec::Plugins::V1::ModuleHelpers
 
         def initialize(supplied_module_path=nil,config={})
           @config_data = config
           @module_path = File.expand_path(supplied_module_path)
-          @context = PluginGen::SpecObject.new(module_path, config)
+          @context = ::<%= capitalized_plugin_name %>::SpecObject.new(module_path, config)
         end
 
         def run

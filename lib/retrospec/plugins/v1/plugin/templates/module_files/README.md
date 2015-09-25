@@ -1,8 +1,15 @@
-# retrospec-plugin_gen
+# retrospec-<%= plugin_name %>
 
 Description goes here.
 
-## Contributing to retrospec-plugin
+## Testing
+
+```shell
+bundle install
+bundle exec rake spec
+```
+
+## Contributing to retrospec-<%= plugin_name %>
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -14,6 +21,6 @@ Description goes here.
 
 ## Copyright
 
-Copyright (c) 2015 Corey Osman. See LICENSE.txt for
+Copyright (c) 2015. See LICENSE.txt for
 further details.
 

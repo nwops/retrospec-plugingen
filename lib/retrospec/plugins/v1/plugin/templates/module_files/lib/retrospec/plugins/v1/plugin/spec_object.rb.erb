@@ -1,7 +1,7 @@
-module <%= @capitalized_plugin_name %>
+module <%= capitalized_plugin_name %>
 
   class SpecObject
-    attr_accessor :instance
+    attr_reader :instance, :module_path, :module_name
 
     def initialize(mod_path, data)
       @instance = data
@@ -13,7 +13,7 @@ module <%= @capitalized_plugin_name %>
     end
 
     def module_name
-      instance['plugin_name']
+      instance[:name]
     end
 
     def get_binding
