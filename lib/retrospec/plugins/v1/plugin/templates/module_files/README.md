@@ -9,6 +9,14 @@ bundle install
 bundle exec rake spec
 ```
 
+## Install
+
+`gem install retrospec-<%= plugin_name %>`
+
+## Usage
+
+`retrospec -m /tmp/test4 <%= plugin_name %> -h`
+
 ## Contributing to retrospec-<%= plugin_name %>
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
