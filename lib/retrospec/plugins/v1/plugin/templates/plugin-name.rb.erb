@@ -1,4 +1,3 @@
-require 'retrospec/plugins/v1/module_helpers'
 require 'retrospec/plugins/v1'
 require_relative 'spec_object'
 
@@ -7,13 +6,7 @@ module Retrospec
     module V1
       class <%= capitalized_plugin_name %> < Retrospec::Plugins::V1::Plugin
 
-        attr_reader :template_dir, :module_path, :config_data, :context
-
-        # by including this module we are getting helper code that will assist
-        # with creating files and rendering template.
-        # for a list of available functions please see the following lik
-        # https://github.com/nwops/retrospec/blob/master/lib/retrospec/plugins/v1/module_helpers.rb
-        include Retrospec::Plugins::V1::ModuleHelpers
+        attr_reader :template_dir, :context
 
         # retrospec will initilalize this class so its up to you
         # to set any additional variables you need to get the job done.

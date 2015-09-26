@@ -1,6 +1,10 @@
-module <%= capitalized_plugin_name %>
+require 'retrospec/plugins/v1/context_object'
 
-  class SpecObject
+module <%= capitalized_plugin_name %>
+  # this object is passed to the templates for erb template rendering
+  # you can use data contained in this object in your templates
+  class SpecObject < Retrospec::Plugins::V1::ContextObject
+
     attr_reader :instance, :module_path, :module_name
 
     def initialize(mod_path, data)
@@ -14,10 +18,6 @@ module <%= capitalized_plugin_name %>
 
     def module_name
       instance[:name]
-    end
-
-    def get_binding
-      binding
     end
   end
 end

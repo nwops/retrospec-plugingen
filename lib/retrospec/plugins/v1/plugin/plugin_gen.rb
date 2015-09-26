@@ -1,4 +1,3 @@
-require 'retrospec/plugins/v1/module_helpers'
 require 'retrospec/plugins/v1'
 require_relative 'spec_object'
 
@@ -8,8 +7,7 @@ module Retrospec
   module Plugins
     module V1
       class PluginGen < Retrospec::Plugins::V1::Plugin
-        attr_reader :template_dir, :module_path, :config_data, :context
-        include Retrospec::Plugins::V1::ModuleHelpers
+        attr_reader :template_dir, :context
 
         def initialize(supplied_module_path='.',config={})
           super
