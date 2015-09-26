@@ -1,4 +1,5 @@
 # retrospec-<%= plugin_name %>
+[![Gem Version](https://badge.fury.io/rb/retrospec-<%= plugin_name %>.svg)](http://badge.fury.io/rb/retrospec-<%= plugin_name %>)
 
 Description goes here.
 
