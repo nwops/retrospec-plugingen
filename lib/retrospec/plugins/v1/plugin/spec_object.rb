@@ -18,6 +18,7 @@ module PluginGen
       @capitalized_plugin_name ||= plugin_name.capitalize
     end
 
+    # the name of the plugin you wish to create, automatically is inherited from the basename of the module_path
     def plugin_name
       @plugin_name ||= instance[:name]
     end

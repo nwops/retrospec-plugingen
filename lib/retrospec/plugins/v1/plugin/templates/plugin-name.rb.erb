@@ -12,9 +12,18 @@ module Retrospec
         include Retrospec::Plugins::V1::ModuleHelpers
 
         def initialize(supplied_module_path=nil,config={})
-          @config_data = config
-          @module_path = File.expand_path(supplied_module_path)
+          super
           @context = ::<%= capitalized_plugin_name %>::SpecObject.new(module_path, config)
+        end
+
+        # used to display subcommand options to the cli
+        # the global options are passed in for your usage
+        # http://trollop.rubyforge.org
+        # all options here are available in the config passed into the initialize code
+        def self.cli_options(global_opts)
+          Trollop::options do
+            opt :option1, "Some fancy option"
+          end
         end
 
         def run

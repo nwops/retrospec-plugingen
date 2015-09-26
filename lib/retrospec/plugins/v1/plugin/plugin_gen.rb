@@ -12,8 +12,7 @@ module Retrospec
         include Retrospec::Plugins::V1::ModuleHelpers
 
         def initialize(supplied_module_path='.',config={})
-          @config_data = config
-          @module_path = File.expand_path(supplied_module_path)
+          super
           @context = ::PluginGen::SpecObject.new(module_path, config)
         end
 
@@ -23,11 +22,12 @@ module Retrospec
           create_plugin_file
         end
 
-        def self.cli_options
+        def self.cli_options(global_opts)
           Trollop::options do
-            opt :name, "The name of the new plugin", :require => false, :short => '-n', :type => :string, :default => File.basename(File.expand_path('.'))
+            opt :name, "The name of the new plugin", :require => false, :short => '-n', :type => :string, :default => File.basename(File.expand_path(global_opts[:module_path]))
           end
         end
+
         private
 
         # this is the name of the plugin the user wants to create

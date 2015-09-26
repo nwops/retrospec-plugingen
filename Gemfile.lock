@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/cosman/github/retrospec
+GIT
+  remote: https://github.com/nwops/retrospec.git
+  revision: 4463563922889a84d6706350190795bddbbbde7e
   specs:
     retrospec (0.1.0)
       trollop

@@ -13,6 +13,5 @@ group :development do
   gem "simplecov", ">= 0"
   gem "pry"
 end
-#gem 'retrospec', :git => 'https://github.com/nwops/retrospec.git'
-gem 'retrospec', :path => '/Users/cosman/github/retrospec'
+gem 'retrospec', :git => 'https://github.com/nwops/retrospec.git'
 gem 'facets'
