@@ -5,7 +5,8 @@ require_relative 'spec_object'
 module Retrospec
   module Plugins
     module V1
-      class <%= capitalized_plugin_name %>
+      class <%= capitalized_plugin_name %> < Retrospec::Plugins::V1::Plugin
+
         attr_reader :template_dir, :module_path, :config_data, :context
 
         include Retrospec::Plugins::V1::ModuleHelpers

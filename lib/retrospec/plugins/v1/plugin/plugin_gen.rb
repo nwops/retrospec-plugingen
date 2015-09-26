@@ -23,25 +23,26 @@ module Retrospec
           create_plugin_file
         end
 
-        # the name of the plugin that will be sent to the cli
-        def self.plugin_name
-          self.name.split('::').last.downcase
+        def self.cli_options
+          Trollop::options do
+            opt :name, "The name of the new plugin", :require => false, :short => '-n', :type => :string, :default => File.basename(File.expand_path('.'))
+          end
         end
-
         private
 
+        # this is the name of the plugin the user wants to create
         def external_plugin_name
           context.plugin_name
         end
 
         def create_main_file
-          file_path = File.join(module_path, 'lib', "retrospec-#{plugin_name}.rb" )
+          file_path = File.join(module_path, 'lib', "retrospec-#{external_plugin_name}.rb" )
           template  = File.join(template_dir, 'retrospec-main-plugin-file.rb.erb' )
           safe_create_template_file(file_path, template, context)
         end
 
         def create_plugin_file
-          file_path = File.join(module_path, 'lib', 'retrospec', 'plugins', 'v1', 'plugin', "#{plugin_name}.rb" )
+          file_path = File.join(module_path, 'lib', 'retrospec', 'plugins', 'v1', 'plugin', "#{external_plugin_name}.rb" )
           template  = File.join(template_dir, 'plugin-name.rb.erb' )
           safe_create_template_file(file_path, template, context)
         end
