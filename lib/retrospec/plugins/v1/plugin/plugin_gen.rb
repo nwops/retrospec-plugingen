@@ -7,12 +7,11 @@ require_relative 'spec_object'
 module Retrospec
   module Plugins
     module V1
-      class PluginGen
+      class PluginGen < Retrospec::Plugins::V1::Plugin
         attr_reader :template_dir, :module_path, :config_data, :context
-
         include Retrospec::Plugins::V1::ModuleHelpers
 
-        def initialize(supplied_module_path=nil,config={})
+        def initialize(supplied_module_path='.',config={})
           @config_data = config
           @module_path = File.expand_path(supplied_module_path)
           @context = ::PluginGen::SpecObject.new(module_path, config)
@@ -24,9 +23,14 @@ module Retrospec
           create_plugin_file
         end
 
+        # the name of the plugin that will be sent to the cli
+        def self.plugin_name
+          self.name.split('::').last.downcase
+        end
+
         private
 
-        def plugin_name
+        def external_plugin_name
           context.plugin_name
         end
 
