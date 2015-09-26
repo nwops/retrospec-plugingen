@@ -1,4 +1,5 @@
 # retrospec-plugin_gen
+[![Gem Version](https://badge.fury.io/rb/retrospec.svg)](http://badge.fury.io/rb/retrospec)
 
 ## Summary
 This plugin is the starting point to create plugins for retrospec.  Its a widget for creating widgets!
