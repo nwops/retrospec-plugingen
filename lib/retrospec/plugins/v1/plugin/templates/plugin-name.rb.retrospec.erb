@@ -31,16 +31,17 @@ module Retrospec
         # this is the main entry point that retrospec will use to make magic happen
         # this is called after everything has been initialized
         def run
-          # the safe_create_module_files will render every file under the templates/module_files
-          # folder in your gem and copy them to the destination.
+          # the safe_create_module_files will render every file that ends with .retrospec.erb
+          # under the templates/module_files folder in your gem and copy them to the destination.
           safe_create_module_files(template_dir, module_path, context)
           # Should you need to change the file name of the copied file you will have to move
           # the file outside of the module_files directory and
-          # render if using: safe_create_template_file(file_path, template, context)
+          # render it using: safe_create_template_file(file_path, template, context)
         end
 
         # the template directory located inside the your retrospec plugin gem
         # you should not have to modify this unless you move the templates directory
+        # if this directory does not exist please create a directory templates/module_files
         def template_dir
           @template_dir ||= File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
         end
