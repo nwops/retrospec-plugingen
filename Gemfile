@@ -9,4 +9,4 @@ group :development do
   gem "pry"
 end
 gem 'facets'  # used for snakecase
-gem 'retrospec',  "~> 0.2"
+gem 'retrospec',  "~> 0.3"
