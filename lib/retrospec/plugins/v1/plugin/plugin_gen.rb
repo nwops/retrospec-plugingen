@@ -35,13 +35,13 @@ module Retrospec
 
         def create_main_file
           file_path = File.join(module_path, 'lib', "retrospec-#{external_plugin_name}.rb" )
-          template  = File.join(template_dir, 'retrospec-main-plugin-file.rb.erb' )
+          template  = File.join(template_dir, 'retrospec-main-plugin-file.rb.retrospec.erb' )
           safe_create_template_file(file_path, template, context)
         end
 
         def create_plugin_file
           file_path = File.join(module_path, 'lib', 'retrospec', 'plugins', 'v1', 'plugin', "#{external_plugin_name}.rb" )
-          template  = File.join(template_dir, 'plugin-name.rb.erb' )
+          template  = File.join(template_dir, 'plugin-name.rb.retrospec.erb' )
           safe_create_template_file(file_path, template, context)
         end
 
