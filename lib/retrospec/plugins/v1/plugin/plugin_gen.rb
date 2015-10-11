@@ -1,6 +1,6 @@
 require 'retrospec/plugins/v1'
 require_relative 'spec_object'
-
+require_relative 'version'
 # this plugin will generate the necessary scaffolding in order to build your own
 # retrospec plugin.
 module Retrospec
@@ -20,9 +20,36 @@ module Retrospec
           create_plugin_file
         end
 
-        def self.cli_options(global_opts)
-          Trollop::options do
+        def self.run_cli(global_opts, global_config, plugin_config, args=ARGV)
+          # a list of subcommands for this plugin
+          sub_commands  = []
+          if sub_commands.count > 0
+            sub_command_help = "Subcommands:\n#{sub_commands.join("\n")}\n"
+          else
+            sub_command_help = ""
+          end
+          plugin_opts = Trollop::options do
+            version "#{Retrospec::PluginGen::VERSION} (c) Corey Osman"
+            banner <<-EOS
+A generator to create plugins for retrospec\n
+#{sub_command_help}
+
+            EOS
             opt :name, "The name of the new plugin", :require => false, :short => '-n', :type => :string, :default => File.basename(File.expand_path(global_opts[:module_path]))
+            stop_on sub_commands
+          end
+          # the passed in options will always override the config file
+          plugin_data = plugin_opts.merge(global_config).merge(global_opts).merge(plugin_config).merge(plugin_opts)
+          # define the default action to use the plugin here, the default is run
+          sub_command = (args.shift || :run).to_sym
+          # create an instance of this plugin
+          plugin = self.new(plugin_data[:module_path],plugin_data)
+          # check if the plugin supports the sub command
+          if plugin.respond_to?(sub_command)
+            plugin.send(sub_command)
+          else
+            puts "The subcommand #{sub_command} is not supported or valid"
+            exit 1
           end
         end
 

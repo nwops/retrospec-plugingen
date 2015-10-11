@@ -2,9 +2,15 @@ require 'spec_helper'
 require 'retrospec'
 
 describe "<%= plugin_name %>" do
+
+  let(:global_opts) do
+    {:module_path => '/tmp/testplugin_dir'}
+  end
+
   let(:plugin) do
     Retrospec::Plugins::V1::<%= capitalized_plugin_name %>.new('/tmp/testplugin_dir', {:name => 'testplugin', :config1 => 'test'})
   end
+
 
   it "can create plugin instance" do
     expect(plugin).to be_a Retrospec::Plugins::V1::<%= capitalized_plugin_name %>
@@ -14,7 +20,7 @@ describe "<%= plugin_name %>" do
     expect(plugin.config_data[:config1]).to eq('test')
   end
 
-  it 'can module_path from context' do
+  it 'can get module_path from context' do
     expect(plugin.context.module_path).to eq('/tmp/testplugin_dir')
   end
 
@@ -24,5 +30,19 @@ describe "<%= plugin_name %>" do
 
   it 'can run without error' do
     expect{plugin.run}.to_not raise_error
+  end
+
+  it 'can run cli' do
+    expect(Retrospec::Plugins::V1::<%= capitalized_plugin_name %>.run_cli(global_opts, {},{}, []).count).to eq(2)
+  end
+
+  describe 'subcommands' do
+     # if your plugin has subcommands you can test them here by putting the subcommands in the array below
+    subcommands = []
+    subcommands.each do |cmd|
+      it "can run cli with subcommand #{cmd}" do
+        expect(Retrospec::Plugins::V1::Newplugin3.run_cli(global_opts, {},{}, [cmd]).count).to eq(2)
+      end
+    end
   end
 end

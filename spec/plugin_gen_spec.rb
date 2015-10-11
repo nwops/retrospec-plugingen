@@ -2,6 +2,14 @@ require 'spec_helper'
 require 'retrospec'
 
 describe "RetrospecPlugin" do
+  let(:global_opts) do
+    {:module_path => '/tmp/testplugin_dir'}
+  end
+
+  before :each do
+    FileUtils.rm_rf('/tmp/testplugin_dir')
+  end
+
   let(:gen) do
     Retrospec::Plugins::V1::PluginGen.new('/tmp/testplugin_dir', {:name => 'testplugin', :config1 => 'test'})
   end
@@ -28,5 +36,9 @@ describe "RetrospecPlugin" do
 
   it 'can run without error' do
     expect{gen.run}.to_not raise_error
+  end
+
+  it 'can run cli' do
+    expect(Retrospec::Plugins::V1::PluginGen.run_cli(global_opts, {},{}, [])).to eq(nil)
   end
 end

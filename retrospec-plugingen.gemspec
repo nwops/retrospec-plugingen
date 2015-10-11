@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "retrospec-plugingen"
-  s.version = "0.2.2"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Corey Osman"]
-  s.date = "2015-09-28"
+  s.date = "2015-10-11"
   s.description = ""
   s.email = "corey@logicminds.biz"
   s.extra_rdoc_files = [
@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
+    "New_plugin.md",
     "README.md",
     "Rakefile",
     "VERSION",
@@ -35,10 +36,13 @@ Gem::Specification.new do |s|
     "lib/retrospec/plugins/v1/plugin/templates/module_files/README.md.retrospec.erb",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/Rakefile.retrospec.erb",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/lib/retrospec/plugins/v1/plugin/spec_object.rb.retrospec.erb",
+    "lib/retrospec/plugins/v1/plugin/templates/module_files/lib/retrospec/plugins/v1/plugin/templates/module_files/.gitkeep",
+    "lib/retrospec/plugins/v1/plugin/templates/module_files/lib/retrospec/plugins/v1/plugin/version.rb.retrospec.erb",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/spec/spec_helper.rb.retrospec.erb",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/spec/unit/plugin_spec.rb.retrospec.erb",
     "lib/retrospec/plugins/v1/plugin/templates/plugin-name.rb.retrospec.erb",
     "lib/retrospec/plugins/v1/plugin/templates/retrospec-main-plugin-file.rb.retrospec.erb",
+    "lib/retrospec/plugins/v1/plugin/version.rb",
     "retrospec-plugingen.gemspec",
     "spec/plugin_gen_spec.rb",
     "spec/retrospec-plugin_spec.rb",
@@ -55,7 +59,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<facets>, [">= 0"])
-      s.add_runtime_dependency(%q<retrospec>, ["~> 0.3"])
+      s.add_runtime_dependency(%q<retrospec>, ["~> 0.4"])
       s.add_development_dependency(%q<rspec>, ["~> 3.2"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
@@ -64,7 +68,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<pry>, [">= 0"])
     else
       s.add_dependency(%q<facets>, [">= 0"])
-      s.add_dependency(%q<retrospec>, ["~> 0.3"])
+      s.add_dependency(%q<retrospec>, ["~> 0.4"])
       s.add_dependency(%q<rspec>, ["~> 3.2"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
@@ -74,7 +78,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<facets>, [">= 0"])
-    s.add_dependency(%q<retrospec>, ["~> 0.3"])
+    s.add_dependency(%q<retrospec>, ["~> 0.4"])
     s.add_dependency(%q<rspec>, ["~> 3.2"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
