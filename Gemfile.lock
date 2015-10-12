@@ -87,6 +87,6 @@ DEPENDENCIES
   jeweler (~> 2.0.1)
   pry
   rdoc (~> 3.12)
-  retrospec (~> 0.4)
+  retrospec (~> 0.4.0)
   rspec (~> 3.2)
   simplecov
